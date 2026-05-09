@@ -71,9 +71,6 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto text-center md:text-left">
             <div className="space-y-6 md:space-y-8">
-              <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">
-                Available for New Challenges
-              </div>
               <div>
                 <h1 className="text-6xl md:text-8xl font-bold text-foreground leading-tight tracking-tighter">
                   Desenvolvedor
