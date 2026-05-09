@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import axios from "axios";
 import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
@@ -40,6 +41,22 @@ async function startServer() {
       createContext,
     })
   );
+
+  // Healthcheck route para o Render
+  app.get("/api/health", (_req, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
+  // Auto-ping para manter o Render acordado
+  const RENDER_URL = "https://portfolio-tay.onrender.com";
+  setInterval(async () => {
+    try {
+      await axios.get(`${RENDER_URL}/api/health`);
+      console.log("[Keep-Alive] Self-ping successful");
+    } catch (err) {
+      console.error("[Keep-Alive] Self-ping failed:", err instanceof Error ? err.message : err);
+    }
+  }, 14 * 60 * 1000); // 14 minutos
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
