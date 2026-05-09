@@ -88,13 +88,13 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
                 <a href="#projects" className="inline-block">
-                  <Button variant="outline" className="w-full sm:w-auto h-12 px-8 text-lg rounded-xl border-white/10 hover:bg-white/5 backdrop-blur-sm">
-                    Ver Projetos
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto h-12 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-105">
+                    Ver Projetos <ArrowRight className="w-5 h-4 ml-2" />
                   </Button>
                 </a>
                 <a href="#contact" className="inline-block">
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_rgba(59,130,246,0.5)] w-full sm:w-auto h-12 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-105">
-                    Entrar em Contato <ArrowRight className="w-5 h-4 ml-2" />
+                  <Button variant="outline" className="w-full sm:w-auto h-12 px-8 text-lg rounded-xl border-primary/30 text-primary hover:bg-primary/10 backdrop-blur-sm transition-all duration-300">
+                    Entrar em Contato
                   </Button>
                 </a>
               </div>
